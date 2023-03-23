@@ -55,7 +55,7 @@ const Select = ({ options, value, multiple, onChange }: SelectProps) => {
             onBlur={() => setIsOpen(false)}
             onClick={() => setIsOpen(prevState => !prevState)}
         >
-            <span className={styles['value']}>{multiple ?
+            <div className={styles['value']}>{multiple ?
                 value.map((val, idx) => {
                     return <button
                         key={idx}
@@ -64,10 +64,10 @@ const Select = ({ options, value, multiple, onChange }: SelectProps) => {
                             event.stopPropagation();
                             selectOption(val);
                         }}
-                    >{val.label}<span className={styles['remove-btn']}>&times;</span></button>
+                    >{val.label}<div className={styles['remove-btn']}>&times;</div></button>
                 })
                 : value?.label}
-            </span>
+            </div>
             <button
                 className={styles['clear-btn']}
                 onClick={event => {
